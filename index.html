@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -8,6 +7,15 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <style>
+        #languageSelect {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+    </style>
+   
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -34,8 +42,50 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+
+
 </head>
 
+<body>
+
+  <select id="languageSelect">
+        <option value="">Select Language</option>
+        <option value="en" selected>English</option>
+        <option value="ja">日本語 (Japanese)</option>
+        <option value="ar">العربية (Arabic)</option>
+    </select>
+
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ja,ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            document.getElementById('languageSelect').value = 'en';
+
+            document.getElementById('languageSelect').addEventListener('change', function() {
+                var lang = this.value;
+                if (lang) {
+                    var translateInstance = google.translate.TranslateElement.getInstance();
+                    if (translateInstance && typeof translateInstance.changeLanguage === 'function') {
+                        translateInstance.changeLanguage(lang);
+                    } else {
+                        console.error("Google Translate API not ready or changeLanguage not found.");
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
+   
+   
 <body class="index-page">
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
@@ -74,9 +124,12 @@
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
-
+	
+	 
+		
   </header>
-
+  
+    
   <main class="main">
 
     <!-- Hero Section -->
@@ -99,6 +152,9 @@
         <h2>Career Goals</h2>
         <p> To be employed in an established company that would utilize my skills and knowledge in hardware maintenance, network troubleshooting, and computer maintenance amongst others, while offering me the potential for advancement. I am a Certified Computer Technician who operates well in team environment, even with cultural differences, in which technology expertise, extensive analytical skills, and strong problem-solving abilities are key to success.</p>
       </div><!-- End Section Title -->
+	  
+									
+
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -586,6 +642,7 @@
     </div>
 
   </footer>
+  
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -607,6 +664,8 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
 
 </body>
 
