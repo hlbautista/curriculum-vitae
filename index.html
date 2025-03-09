@@ -7,15 +7,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <style>
-        #languageSelect {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-        }
-    </style>
-   
+  
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -49,43 +41,7 @@
 
 <body>
 
-  <select id="languageSelect">
-      <option value="">Select Language</option>
-      <option value="en" selected>English</option>
-      <option value="ja">日本語 (Japanese)</option>
-      <option value="es">Español (Spanish)</option>
-      <option value="fr">Français (French)</option>
-      </select>
-
-    <div id="google_translate_element"></div>
-
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,ja,es,fr', // Correctly set
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-
-            document.getElementById('languageSelect').value = 'en';
-
-            document.getElementById('languageSelect').addEventListener('change', function() {
-                var lang = this.value;
-                if (lang) {
-                    var translateInstance = google.translate.TranslateElement.getInstance();
-                    if (translateInstance && typeof translateInstance.changeLanguage === 'function') {
-                        translateInstance.changeLanguage(lang);
-                    } else {
-                        console.error("Google Translate API not ready or changeLanguage not found.");
-                    }
-                }
-            });
-        }
-    </script>
-
-   
-   
-   
+    
    
 <body class="index-page">
   <header id="header" class="header dark-background d-flex flex-column">
